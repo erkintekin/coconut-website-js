@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.coconut shoes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #loginModal {
+        margin-top: 15%;
+      }
+      * {
+        font-family: "Montserrat", sans-serif;
+        font-family: "Raleway", sans-serif;
+      }
+      .navbar a:hover {
+        background-color: greenyellow;
+        transition: all ease 1s;
+      }
+      .navbar a {
+        border-radius: 15px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="loginModal"
+      class="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10 flex justify-center items-center"
+    >
+      <div class="w-full">
+        <div class="text-center">
+          <h1 class="text-3xl font-semibold text-gray-900">Sign in</h1>
+          <p class="mt-2 text-gray-500">Sign in below to access your account</p>
+        </div>
+        <div class="mt-5">
+          <form id="loginForm">
+            <div class="relative mt-6">
+              <input
+                type="text"
+                name="email"
+                id="username"
+                placeholder="Username"
+                class="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+                autocomplete="NA"
+              />
+            </div>
+            <div class="relative mt-6">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                class="peer peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none"
+              />
+            </div>
+            <div class="my-6">
+              <button
+                type="submit"
+                class="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none"
+              >
+                Sign in
+              </button>
+            </div>
+            <p class="text-center text-sm text-gray-500">
+              Don&#x27;t have an account yet?
+              <a
+                href="#!"
+                class="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none"
+                >Sign up </a
+              >.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--Navbar Section-->
+    <nav id="navbar" class="p-4 hidden">
+      <div class="container mx-auto">
+        <div class="navbar flex justify-between" style="width: 100%">
+          <div class="flex justify-between justify-center items-center">
+            <img
+              src="https://i.ibb.co/FB5YBQB/Blue-White-Simple-Modern-Shoes-Store-Logo.png"
+              width="35%"
+            />
+            <a
+              href="#"
+              class="text-black text-decoration-none m-0"
+              style="margin-left: 100px !important"
+              >Homepage</a
+            >
+            <a href="#" class="text-black text-decoration-none ml-4"
+              >Products</a
+            >
+            <a href="#" class="text-black text-decoration-none ml-4"
+              >Categories</a
+            >
+          </div>
+
+          <div>
+            <button class="text-black ml-4" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasWithBothOptions"
+              aria-controls="offcanvasWithBothOptions"
+              style="margin: 25px"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="cartBadge">0</span>
+            </button>
+
+            <div
+              class="offcanvas offcanvas-start"
+              data-bs-scroll="true"
+              tabindex="-1"
+              id="offcanvasWithBothOptions"
+              aria-labelledby="offcanvasWithBothOptionsLabel"
+            >
+              <div class="offcanvas-header">
+                <h5
+                  class="offcanvas-title"
+                  id="offcanvasWithBothOptionsLabel"
+                ></h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <!-- Buraya cart gelecek -->
+              </div>
+            </div>
+            <!-- <a href="#" class="text-white ml-4" id="cartBtn"
+                ><i class="fa-solid fa-cart-shopping"></i
+                ><span
+                  id="cartBadge"
+                  class="bg-red-500 text-white ml-2 p-1 rounded-full"
+                  >0</span
+                ></a
+              > -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--Navbar-->
+
+    <!--Main content-->
+    <div id="content" class="container mx-auto p-4 hidden">
+      <!-- Products Listing-->
+      <div
+        id="productsListing"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
+        <!-- Product carts here-->
+      </div>
+    </div>
+    <!-- Main end-->
+    <!-- Footer -->
+    <footer
+      id="footer"
+      class="text-center text-lg-start bg-white text-muted hidden"
+    >
+      <!-- Section: Social media -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3 text-secondary"></i>coconut.
+              </h6>
+              <p>coconut. is a brand that sells many shoes and home products</p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+              <p>
+                <a href="#!" class="text-reset">Nike</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Reebok</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Puma</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Adidas</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p>
+                <i class="fas fa-home me-3 text-secondary"></i> New York, NY
+                10012, US
+              </p>
+              <p>
+                <i class="fas fa-envelope me-3 text-secondary"></i>
+                info@coconut.com
+              </p>
+              <p>
+                <i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88
+              </p>
+              <p>
+                <i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.025)"
+      >
+        © 2021 Copyright
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
